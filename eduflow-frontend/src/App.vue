@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Header from './components/Header.vue';
 import Main from './components/Main.vue';
+import Enrollment from './components/Enrollment.vue';
 </script>
 
 <template>
@@ -9,15 +10,15 @@ import Main from './components/Main.vue';
         <Header/>
         <Main/>
     </section>
+    <Enrollment/>
 </div>
-
 </template>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     font-family: 'Poppins', Sans Serif;
     box-sizing: border-box;
     margin: 0;
@@ -41,12 +42,12 @@ import Main from './components/Main.vue';
 
 section {
     width: 100%;
-    height: 600px;
+    height: 500px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))
+    justify-content: space-between;
+    background: linear-gradient(165deg, rgba(28, 82, 225), rgba(114, 7, 198)) 
 }
 </style>

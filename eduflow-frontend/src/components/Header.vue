@@ -1,33 +1,51 @@
+<script lang="ts" setup>
+    const navLinks = [
+        {name: 'Home', href: '#'},
+        {name: 'Courses', href: '#'},
+        {name: 'About', href: '#'},
+    ];
+
+    const logo =  'EduFlow';
+
+</script>
+
 <template>
     <header>
-        <h1 class="header__logo">EduFlow</h1>
-        <nav class="header--nav">
-            <a href="" class="header__link">Home</a>
-            <a href="" class="header__link">Courses</a>
-            <a href="" class="header__link">About</a>
+        <h1 class="header__logo">{{logo}}</h1>
+
+        <nav class="header__nav">
+            <a v-for="link in navLinks" 
+                :key="link.name" 
+                :href="link.href"
+                class="header__link"
+            >
+                {{ link.name }}
+            </a>
         </nav>
         
-        <div class="header__profile-section">
-            <img src="#" alt="" class="header__profile-icon">
+        <div class="header__button-area">
+            <button class="header__button header__button--login">Sign-in</button>
+            <button class="header__button header__button--register">Register</button>
         </div>
     </header>
 </template>
 
-<style>
+<style scoped>
     header {
     width: 90%;
-    height: 80px;
+    height: 120px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 12px 0 12px 0;
+    margin: 12px 0;
     background-color: #ffff;
     border-radius: 35px;
     padding: 0 24px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
 }
 
-nav {
-    width: 33%;
+.header__nav {
+    width: 20%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,28 +54,56 @@ nav {
 .header__link {
     text-decoration: none;
     color: #000000;
-    border-radius: 14px;
+    border: 1px solid #0000;
+    border-radius: 12px;
     padding: 6px 12px;
     font-weight: 500;
     transition: all 0.5s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .header__link:hover {
     color: #fff;
+    background-color: #4a4ee0;
+}
+
+.header__button-area{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    justify-content: space-between;   
+}
+
+.header__button {
+    color: #000000;
+    font-size: 16px;
+    border-radius: 12px;
+    padding: 6px 12px;
+    font-weight: 500;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    border: none;
+}
+
+.header__button:hover {
+    color: #fff;
     background-color: #000000;
 }
 
-.header__profile-section {
-    width: 40px;
-    height: 40px;
+.header__button--login {
+    border: 1px solid #000000;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.header__profile-icon {
-    height: 36px;
-    width: 36px;
+.header__button--register {
+    background-color: #4a4ee0;
+    color: #ffffff;
 }
+
+.header__button--register:hover {
+    color: #fff;
+    background-color: #000000;
+    transform: translateY(-2px)
+}
+
 </style>
