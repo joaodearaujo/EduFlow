@@ -6,7 +6,6 @@
     ];
 
     const logo =  'EduFlow';
-
 </script>
 
 <template>
@@ -33,7 +32,7 @@
 <style scoped>
     header {
     width: 90%;
-    height: 120px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -58,9 +57,8 @@
     border-radius: 12px;
     padding: 6px 12px;
     font-weight: 500;
-    transition: all 0.5s ease-in-out;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
+    transition: all 0.3s ease-in-out;
+}   
 
 .header__link:hover {
     color: #fff;
@@ -76,11 +74,12 @@
 
 .header__button {
     color: #000000;
+    background-color: #ffffff;
     font-size: 16px;
     border-radius: 12px;
     padding: 6px 12px;
     font-weight: 500;
-    transition: all 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out;
     cursor: pointer;
     border: none;
 }
@@ -88,22 +87,15 @@
 .header__button:hover {
     color: #fff;
     background-color: #000000;
+    transform: translateY(-2px)
 }
 
 .header__button--login {
     border: 1px solid #000000;
-
 }
 
 .header__button--register {
     background-color: #4a4ee0;
     color: #ffffff;
 }
-
-.header__button--register:hover {
-    color: #fff;
-    background-color: #000000;
-    transform: translateY(-2px)
-}
-
 </style>

@@ -1,30 +1,43 @@
 <script lang="ts" setup>
+
+import FormularioMatricula from './FormularioMatricula.vue';
+
 const title = "Transform Your Future with Modern Education";
 const subtitle = "Join thousands of students advancing their careers through our innovative online learning platform.";
 </script>
 
 <template>
   <main class="hero">
-    <div class="hero__text-container">
-      <h1 class="hero__title">{{ title }}</h1>
-      <p class="hero__subtitle">{{ subtitle }}</p>
+    <div class="hero__call-action">
+      <div class="hero__text-container">
+        <h1 class="hero__title">{{ title }}</h1>
+        <p class="hero__subtitle">{{ subtitle }}</p>
+      </div>
+      
+      <div class="hero__button-area">
+        <button class="hero__button hero__button--get-started">Get Started Free</button>
+        <button class="hero__button hero__button--watch-demo">Watch Demo</button>
+      </div>
     </div>
-    
-    <div class="hero__button-area">
-      <button class="hero__button hero__button--get-started">Get Started Free</button>
-      <button class="hero__button hero__button--watch-demo">Watch Demo</button>
-    </div>
+
+    <FormularioMatricula/>
   </main>
+
 </template>
 
 <style scoped>
 .hero {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero__call-action {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: 32px;
-  width: 100%;
   padding: 40px 20px;
   text-align: center;
 }
@@ -53,7 +66,7 @@ const subtitle = "Join thousands of students advancing their careers through our
 .hero__button-area {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center ;
   gap: 16px;
 }
 
@@ -80,16 +93,5 @@ const subtitle = "Join thousands of students advancing their careers through our
 .hero__button--watch-demo {
   color: #ffffff;
   background-color: #4a4ee0;
-}
-
-@media (max-width: 480px) {
-  .hero__button-area {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero__button {
-    width: 100%;
-  }
 }
 </style>
