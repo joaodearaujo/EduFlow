@@ -2,7 +2,7 @@
     const navLinks = [
         {name: 'Home', href: '#'},
         {name: 'Courses', href: '#'},
-        {name: 'About', href: '#'},
+        {name: 'About Us', href: '#'},
     ];
 
     const logo =  'EduFlow';
@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 12px 0;
+    margin: 12px auto;
     background-color: #ffff;
     border-radius: 35px;
     padding: 0 24px;

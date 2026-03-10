@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
+import axios from 'axios';
 
 const title = "Start Your Learning Journey";
 const subtitle = "Fill out the form below to enroll in your desired course";
@@ -14,24 +15,44 @@ const formItems = ref([
         label: 'Course', 
         type: 'select', 
         placeholder: 'Choose a Course', 
-        options: ['Web Development', 'Mobile App Design', 'Data Analysis'],
+        options: [] as string[],
         value: '' 
     }
 ]);
 
-const handleEnroll = () => {
+onMounted(async () => {
+    try {
+        const response = await axios.get('http://localhost:3000/cursos');
+        const courseField = formItems.value.find(item => item.id === 'course');
+        if (courseField) {
+            courseField.options = response.data.map((curso: {label: string}) => curso.label);
+        }
+    } catch (error) {
+        console.error("Erro ao procurar cursos na API:", error)
+    }
+})
+
+const handleEnroll = async () => {
     const formData = formItems.value.reduce((acc, item) => {
         acc[item.id] = item.value;
         return acc;
     }, {} as Record<string, string>);
 
-    console.log(formData);
-    
-    isSuccess.value = true;
+    try {
+        const response = await axios.post('http://localhost:3000/matricula', formData);
 
-    setTimeout(() => {
-        isSuccess.value = false;
-    }, 5000);
+        if (response.status === 201) {
+            isSuccess.value = true;
+
+            formItems.value.forEach(item => item.value = '');
+
+            setTimeout(() => {
+                isSuccess.value = false;
+            }, 5000)
+        }
+    } catch (error) {
+        alert("Erro ao solicitar matrícula. Certifique-se de que o servidor está online.")
+    }
 };
 </script>
 
