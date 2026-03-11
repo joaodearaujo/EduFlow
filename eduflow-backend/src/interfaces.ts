@@ -6,5 +6,7 @@ export interface Curso {
 export interface Matricula {
     name: string;
     email: string;
+    phone: string;
     course: string;
+
 }
