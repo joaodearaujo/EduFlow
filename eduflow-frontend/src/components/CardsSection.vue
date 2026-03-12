@@ -24,21 +24,28 @@ const cardsInfo = [
 <template>
     <section class="cards">
         <header class="cards__header">
-            <h2 class="cards__main-title">{{ title }}</h2>
-            <p class="cards__main-subtitle">{{ subtitle }}</p>
+            <div class="cards__text-wrapper">
+                <h2 class="cards__main-title">{{ title }}</h2>
+                <p class="cards__main-subtitle">{{ subtitle }}</p>
+            </div>
         </header>
 
         <div class="cards__grid">
-            <article class="card" v-for="item in cardsInfo" :key="item.title">
-                <span class="card__icon">{{ item.icon }}</span>
-                <h3 class="card__title">{{ item.title }}</h3>
-                <p class="card__description">{{ item.cardDescription }}</p>
+            <article 
+                v-for="{ icon, title, cardDescription } in cardsInfo" 
+                :key="title" 
+                class="card"
+            >
+                <span class="card__icon" aria-hidden="true">{{ icon }}</span>
+                <h3 class="card__title">{{ title }}</h3>
+                <p class="card__description">{{ cardDescription }}</p>
             </article>
         </div>
     </section>
 </template>
 
 <style scoped>
+
 .cards {
     width: 100%;
     max-width: 1200px;
@@ -51,7 +58,13 @@ const cardsInfo = [
 }
 
 .cards__header {
+    display: flex;
+    justify-content: center;
     text-align: center;
+    width: 100%;
+}
+
+.cards__text-wrapper {
     max-width: 600px;
 }
 
@@ -80,6 +93,7 @@ const cardsInfo = [
     padding: 32px;
     display: flex;
     flex-direction: column;
+    flex: 1;
     gap: 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);

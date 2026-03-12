@@ -5,97 +5,121 @@
         {name: 'About Us', href: '#'},
     ];
 
-    const logo =  'EduFlow';
+    const logo = 'EduFlow';
 </script>
 
 <template>
-    <header>
-        <h1 class="header__logo">{{logo}}</h1>
+    <header class="header">   
+        <div class="header__logo-wrapper">
+                <a class="header__logo-link">{{logo}}</a>
+        </div>
 
         <nav class="header__nav">
-            <a v-for="link in navLinks" 
-                :key="link.name" 
-                :href="link.href"
-                class="header__link"
-            >
-                {{ link.name }}
-            </a>
+            <ul class="header__ul">
+                <li class="header__li" v-for="link in navLinks">
+                    <a class="header__link"
+                    :key="link.name"
+                    :href="link.href"
+                    >{{ link.name }}</a>
+              </li>
+            </ul>
         </nav>
-        
-        <div class="header__button-area">
-            <button class="header__button header__button--login">Sign-in</button>
-            <button class="header__button header__button--register">Register</button>
-        </div>
     </header>
 </template>
 
 <style scoped>
-    header {
-    width: 90%;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 12px auto;
-    background-color: #ffff;
-    border-radius: 35px;
-    padding: 0 24px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+
+.header {
+  width: 90%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px auto;
+  background-color: var(--text-primary);
+  border-radius: 35px;
+  padding: 0 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header__logo-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header__logo-link {
+  font-size: 35px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--primary-bg);
+  margin: auto 0;
 }
 
 .header__nav {
-    width: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 20%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.header__ul {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__li {
+  list-style: none;
 }
 
 .header__link {
-    text-decoration: none;
-    color: #000000;
-    border: 1px solid #0000;
-    border-radius: 12px;
-    padding: 6px 12px;
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-}   
-
-.header__link:hover {
-    color: #fff;
-    background-color: #4a4ee0;
+  text-decoration: none;
+  color: var(--primary-bg);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
 }
 
-.header__button-area{
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    justify-content: space-between;   
+.header__link:hover {
+  color: var(--text-primary);
+  background-color: var(--accent-color);
+}
+
+.header__button-area {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: space-between;
 }
 
 .header__button {
-    color: #000000;
-    background-color: #ffffff;
-    font-size: 16px;
-    border-radius: 12px;
-    padding: 6px 12px;
-    font-weight: 500;
-    transition: all 0.3s ease-in-out;
-    cursor: pointer;
-    border: none;
+  color: var(--primary-bg);
+  background-color: var(--text-primary);
+  font-size: 16px;
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border: none;
 }
 
 .header__button:hover {
-    color: #fff;
-    background-color: #000000;
-    transform: translateY(-2px)
+  color: var(--text-primary);
+  background-color: var(--primary-bg);
+  transform: translateY(-2px)
 }
 
 .header__button--login {
-    border: 1px solid #000000;
+  border: 1px solid var(--primary-bg);
 }
 
 .header__button--register {
-    background-color: #4a4ee0;
-    color: #ffffff;
+  background-color: var(--accent-color);
+  color: var(--text-primary);
 }
 </style>

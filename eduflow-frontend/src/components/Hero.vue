@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 import FormularioMatricula from './FormularioMatricula.vue';
 
 const title = "Transform Your Future with Modern Education";
@@ -7,39 +6,43 @@ const subtitle = "Join thousands of students advancing their careers through our
 </script>
 
 <template>
-  <main class="hero">
-    <div class="hero__call-action">
-      <div class="hero__text-container">
+  <section class="hero">
+    <div class="hero__content">
+      <header class="hero__text-container">
         <h1 class="hero__title">{{ title }}</h1>
         <p class="hero__subtitle">{{ subtitle }}</p>
-      </div>
+      </header>
       
-      <div class="hero__button-area">
-        <button class="hero__button hero__button--get-started">Get Started Free</button>
-        <button class="hero__button hero__button--watch-demo">Watch Demo</button>
+      <div class="hero__actions">
+        <button class="hero__button hero__button--primary">
+          Watch a Demo
+        </button>
       </div>
     </div>
 
-    <FormularioMatricula/>
-  </main>
-
+    <aside class="hero__form-wrapper">
+      <FormularioMatricula />
+    </aside>
+  </section>
 </template>
 
 <style scoped>
+
 .hero {
-  width: 90%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  gap: 40px;
 }
 
-.hero__call-action {
-  width: 50%;
+.hero__content {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 40px 20px;
-  text-align: center;
+  padding: 40px 0;
 }
 
 .hero__text-container {
@@ -47,26 +50,26 @@ const subtitle = "Join thousands of students advancing their careers through our
   flex-direction: column;
   gap: 16px;
   max-width: 800px;
+  text-align: left; 
 }
 
 .hero__title {
   font-size: clamp(32px, 8vw, 64px);
-  color: #ffffff;
+  color: var(--text-primary);
   line-height: 1.1;
   font-weight: 800;
 }
 
 .hero__subtitle {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-secondary);
   font-weight: 400;
   font-size: clamp(18px, 2vw, 22px);
   line-height: 1.5;
 }
 
-.hero__button-area {
+.hero__actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center ;
   gap: 16px;
 }
 
@@ -85,13 +88,15 @@ const subtitle = "Join thousands of students advancing their careers through our
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.hero__button--get-started {
-  color: #155dfc;
-  background-color: #ffffff;
+.hero__button--primary {
+  color: var(--accent-color);
+  background-color: var(--text-primary);
 }
 
-.hero__button--watch-demo {
-  color: #ffffff;
-  background-color: #4a4ee0;
+.hero__form-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }
+
 </style>

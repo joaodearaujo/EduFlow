@@ -2,7 +2,7 @@
 const currentYear = new Date().getFullYear();
 
 const footerLinks = [
-    { title: 'Courses', links: ['Web Development', 'Data Science', 'UI/UX Design'] },
+    { title: 'Courses', links: ['Web Development', 'Mobile App Design', 'Data Analysis', 'Cybersecurity Essentials', 'UX/UI Strategy', 'Artificial Intelligence', 'Digital Marketing', 'Cloud Computing' ]},
     { title: 'Company', links: ['About Us', 'Careers', 'Contact'] },
     { title: 'Support', links: ['Help Center', 'Terms of Service', 'Privacy Policy'] }
 ]
@@ -37,8 +37,8 @@ const footerLinks = [
 <style scoped>
 .footer {
     width: 100%;
-    background: rgba(0, 0, 0);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--primary-bg);
+    border-top: 1px solid var(--border-color);
     padding: 60px 5% 20px;
 }
 
@@ -57,13 +57,13 @@ const footerLinks = [
 
 .footer__logo {
     font-size: 28px;
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 800;
     margin-bottom: 16px;
 }
 
 .footer__description {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-secondary);
     line-height: 1.6;
     max-width: 300px;
 }
@@ -77,11 +77,11 @@ const footerLinks = [
 }
 
 .footer__group {
-    min-width: 140px;
+    min-width: 180px;
 }
 
 .footer__group-title {
-    color: #ffffff;
+    color: var(--text-primary);
     font-size: 16px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -96,23 +96,23 @@ const footerLinks = [
 }
 
 .footer__link {
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--text-secondary);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer__link:hover {
-    color: #ffffff;
+    color: var(--text-primary);
 }
 
 .footer__bottom {
     max-width: 1200px;
     margin: 60px auto 0;
     padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-top: 1px solid var(--border-color);
     text-align: center;
-    color: rgba(255, 255, 255, 0.3);
+    color: var(--text-secondary);
     font-size: 12px;
 }
 </style>

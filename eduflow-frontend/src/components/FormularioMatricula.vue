@@ -3,7 +3,7 @@ import { onMounted, ref } from 'vue';
 import axios from 'axios';
 
 const title = "Start Your Learning Journey";
-const subtitle = "Fill out the form below to enroll in your desired course";
+const subtitle = "Fill out the form below to enroll in your desired course!";
 const isSuccess = ref(false);
 
 const formItems = ref([
@@ -104,12 +104,13 @@ form {
     padding: 32px 24px;
     align-items: center;
     border-radius: 16px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    background: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background: var(--text-primary);
     position: relative;
 }
 
 .form__success-msg {
+    position: fixed;
     width: 100%;
     max-width: 600px;
     padding: 12px;
@@ -144,14 +145,14 @@ form {
     height: 50px;
     border-radius: 12px;
     padding: 0 12px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-color);
     outline: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
 }
 
 .form__input:focus {
-    border-color: #1c52e1;
+    border-color: var(--accent-color);
 }
 
 .form__button {
@@ -160,9 +161,9 @@ form {
     max-width: 600px;
     font-size: 18px;
     font-weight: 500;
-    color: #ffffff;
+    color: var(--text-primary);
     border-radius: 12px;
-    background: linear-gradient(165deg, #1c52e1, #7207c6);
+    background: linear-gradient(165deg, var(--accent-color), #7207c6);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     cursor: pointer;
@@ -171,5 +172,6 @@ form {
 .form__button:hover {
     transform: translateY(-1px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(45deg, var(--accent-color), #0077ff);
 }
 </style>
