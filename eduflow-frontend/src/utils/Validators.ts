@@ -14,5 +14,6 @@ export const checkNumber = (number: string): boolean => {
     }
 
     const regexNumber = /^\d{10,11}$/;
+    
     return regexNumber.test(finalNumber);
-}
+}                                                           

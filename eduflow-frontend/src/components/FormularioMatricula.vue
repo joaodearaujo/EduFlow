@@ -77,7 +77,7 @@ const handleEnroll = async () => {
 <template>
     <form @submit.prevent="handleEnroll">
         <div v-if="isSuccess" class="form__success-msg">
-            Matrícula realizada com êxito! 🎉
+            Enrolment successfully carried out! 🎉
         </div>
 
         <h2 class="form__title">{{ title }}</h2>
