@@ -22,14 +22,18 @@ app.get('/cursos', (req: Request, res: Response) => {
 })
 
 app.post('/matricula', (req: Request, res: Response) => {
+
     const { name, email, course }: Matricula = req.body;
 
-    if (!name || !email || !course) {
+    if (!name || !email || !course ) {
         return res.status(400).json({
             error: 'Bad Request',
             message: 'All fields (name, email, and course) are required.'
         });
     }
+
+
+    if(name)
 
     console.log(`Nova matrícula recebida: ${name} no curso ${course}`);
 
@@ -40,6 +44,7 @@ app.post('/matricula', (req: Request, res: Response) => {
 })
 
 const PORT = 3000;
+
 app.listen(PORT, () => {
     console.log(`Servidor EduFlow a correr em http://localhost:${PORT}`)
 })

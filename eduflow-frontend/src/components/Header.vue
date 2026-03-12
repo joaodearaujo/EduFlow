@@ -11,7 +11,7 @@
 <template>
     <header class="header">   
         <div class="header__logo-wrapper">
-                <a class="header__logo-link">{{logo}}</a>
+                <a class="header__logo-link" href="#">{{logo}}</a>
         </div>
 
         <nav class="header__nav">
@@ -54,6 +54,7 @@
   text-decoration: none;
   color: var(--primary-bg);
   margin: auto 0;
+  cursor: pointer;
 }
 
 .header__nav {

@@ -1,6 +1,8 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 import axios from 'axios';
+import { checkEmail } from '../utils/Validators';
+import { checkNumber } from '../utils/Validators';
 
 const title = "Start Your Learning Journey";
 const subtitle = "Fill out the form below to enroll in your desired course!";
@@ -38,7 +40,22 @@ const handleEnroll = async () => {
         return acc;
     }, {} as Record<string, string>);
 
+    const emailValue = formData.email || '';
+    const phoneValue = formData.phone || '';
+
+    if (!checkEmail(emailValue)) {
+        alert('This e-mail cannot be accepted. Verify if you are using a correct domain and try again.')
+        return
+    }
+
+    if (!checkNumber(phoneValue)) {
+        alert('This phone number cannot be accepted. Try again.')
+        return
+    }
+
     try {
+        
+
         const response = await axios.post('http://localhost:3000/matricula', formData);
 
         if (response.status === 201) {
@@ -54,6 +71,7 @@ const handleEnroll = async () => {
         alert("Erro ao solicitar matrícula. Certifique-se de que o servidor está online.")
     }
 };
+
 </script>
 
 <template>
